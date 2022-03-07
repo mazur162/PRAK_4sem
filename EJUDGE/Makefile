@@ -1,14 +1,14 @@
-COMPILER = gcc
-FLAGS = -O2 -ftrapv -fsanitize=undefined -Wall -Werror -Wformat-security -Wignored-qualifiers -Winit-self -Wswitch-default -Wfloat-equal -Wshadow -Wpointer-arith -Wtype-limits -Wempty-body -Wlogical-op -Wstrict-prototypes -Wold-style-declaration -Wold-style-definition -Wmissing-parameter-type -Wmissing-field-initializers -Wnested-externs -Wno-pointer-sign -Wcast-qual -Wwrite-strings -std=gnu11 -g -lm
+COMPILER = g++
+FLAGS = -O2 -Wall -Werror -Wformat-security -Wignored-qualifiers -Winit-self -Wswitch-default -Wfloat-equal -Wshadow -Wpointer-arith -Wtype-limits -Wempty-body -Wlogical-op -Wmissing-field-initializers -Wctor-dtor-privacy -Wnon-virtual-dtor -Wstrict-null-sentinel -Wold-style-cast -Woverloaded-virtual -Wsign-promo -Weffc++ -std=gnu++20 -g -lm
 
-SRCS=$(wildcard *.c)
+SRCS=$(wildcard t*.cpp)
 
-OBJS=$(SRCS:.c=)
+OBJS=$(SRCS:.cpp=)
 
 all: $(OBJS)
 
 test: $(SRC)
-	gcc -o $@ $^ $(FLAGS)
+	$(COMPILER) -o $@ $^ $(FLAGS)
 
 clean:
 	rm -f test
