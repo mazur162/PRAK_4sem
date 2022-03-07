@@ -1,0 +1,21 @@
+class A { 
+public:
+    int y;
+    void f() {cout << "f" << endl;} 
+};
+
+int A::y; 
+int main () {
+    A::y = 1;
+    const A a; 
+    a.f(); 
+    return 0;
+}
+
+6.1. Исправления:
+
+class A { 
+public:
+    static int y;
+    void f() const {cout << "f" << endl;} 
+};
